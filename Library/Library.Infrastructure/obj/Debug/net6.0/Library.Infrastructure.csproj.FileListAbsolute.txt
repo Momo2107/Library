@@ -1,0 +1,11 @@
+R:\Library\Library\Library.Infrastructure\bin\Debug\net6.0\Library.Infrastructure.deps.json
+R:\Library\Library\Library.Infrastructure\bin\Debug\net6.0\Library.Infrastructure.dll
+R:\Library\Library\Library.Infrastructure\bin\Debug\net6.0\Library.Infrastructure.pdb
+R:\Library\Library\Library.Infrastructure\obj\Debug\net6.0\Library.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+R:\Library\Library\Library.Infrastructure\obj\Debug\net6.0\Library.Infrastructure.AssemblyInfoInputs.cache
+R:\Library\Library\Library.Infrastructure\obj\Debug\net6.0\Library.Infrastructure.AssemblyInfo.cs
+R:\Library\Library\Library.Infrastructure\obj\Debug\net6.0\Library.Infrastructure.csproj.CoreCompileInputs.cache
+R:\Library\Library\Library.Infrastructure\obj\Debug\net6.0\Library.Infrastructure.dll
+R:\Library\Library\Library.Infrastructure\obj\Debug\net6.0\refint\Library.Infrastructure.dll
+R:\Library\Library\Library.Infrastructure\obj\Debug\net6.0\Library.Infrastructure.pdb
+R:\Library\Library\Library.Infrastructure\obj\Debug\net6.0\ref\Library.Infrastructure.dll

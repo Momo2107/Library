@@ -1,0 +1,11 @@
+R:\Library\Library\Library.Domain\bin\Debug\net6.0\Library.Domain.deps.json
+R:\Library\Library\Library.Domain\bin\Debug\net6.0\Library.Domain.dll
+R:\Library\Library\Library.Domain\bin\Debug\net6.0\Library.Domain.pdb
+R:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.GeneratedMSBuildEditorConfig.editorconfig
+R:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.AssemblyInfoInputs.cache
+R:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.AssemblyInfo.cs
+R:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.csproj.CoreCompileInputs.cache
+R:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.dll
+R:\Library\Library\Library.Domain\obj\Debug\net6.0\refint\Library.Domain.dll
+R:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.pdb
+R:\Library\Library\Library.Domain\obj\Debug\net6.0\ref\Library.Domain.dll
