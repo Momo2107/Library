@@ -1,9 +1,11 @@
 ﻿using Library.Domain.Core;
 
-internal class Categoria : BaseEntity
+
+namespace Library.Domain.Entities
 {
-    public int IdCategoria { get; set; }
-    public string? Descripcion { get; set; }
-
-
+    internal class Categoria : BaseEntity
+    {
+        public int IdCategoria { get; set; }
+        public string? Descripcion { get; set; }
+    }
 }
