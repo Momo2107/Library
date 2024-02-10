@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "R:\\Library\\Library\\Library.UnitTest\\Library.UnitTest.csproj": {}
+    "D:\\Librery\\Library\\Library\\Library.UnitTest\\Library.UnitTest.csproj": {}
   },
   "projects": {
-    "R:\\Library\\Library\\Library.UnitTest\\Library.UnitTest.csproj": {
+    "D:\\Librery\\Library\\Library\\Library.UnitTest\\Library.UnitTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "R:\\Library\\Library\\Library.UnitTest\\Library.UnitTest.csproj",
+        "projectUniqueName": "D:\\Librery\\Library\\Library\\Library.UnitTest\\Library.UnitTest.csproj",
         "projectName": "Library.UnitTest",
-        "projectPath": "R:\\Library\\Library\\Library.UnitTest\\Library.UnitTest.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "R:\\Library\\Library\\Library.UnitTest\\obj\\",
+        "projectPath": "D:\\Librery\\Library\\Library\\Library.UnitTest\\Library.UnitTest.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\Librery\\Library\\Library\\Library.UnitTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -77,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
