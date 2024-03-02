@@ -67,6 +67,8 @@ namespace Library.Infrastructure.Repositories
                 libroToUpdate.Editorial = libro.Editorial;
                 libroToUpdate.Portada = libro.Portada;
                 libroToUpdate.Titulo = libro.Titulo;
+                libroToUpdate.FechaCreacion = libro.FechaCreacion;
+                libroToUpdate.Estado = libro.Estado;
 
                 this.context.Libros.Update(libroToUpdate);
                 this.context.SaveChanges();
