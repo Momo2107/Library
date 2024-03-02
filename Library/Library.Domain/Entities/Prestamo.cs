@@ -12,7 +12,7 @@ namespace Library.Domain.Entities
         public int? IdLibro { get; set; }
         public DateTime? FechaDevolucion { get; set; }
         public DateTime? FechaConfirmacionDevolucion { get; set; }
-        public string? EstadoEntregado { get; set; }
-        public string? EstadoRecibido { get; set; }
+        public bool? EstadoEntregado { get; set; }
+        public bool? EstadoRecibido { get; set; }
     }
 }
