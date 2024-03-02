@@ -2,14 +2,14 @@
 
 using Library.Domain.Core;
 
-namespace Library.Domain.Entities.Info.DeLibr.EstaP_y_Num_corre
+namespace Library.Domain.Entities.Esta.Prestam_y_Num.Correlativo
 {
-    internal class NumeroCorrelativo : BaseEntity
+    public class NumeroCorrelativo : BaseEntity
     {
-        public int? IdNumeroCorrelativo {  get; set; }
+        public int IdNumeroCorrelativo { get; set; }
         public string? Prefijo { get; set; }
         public string? Tipo { get; set; }
-        public int ? UltimoNumero { get; set; }
+        public int? UltimoNumero { get; set; }
         public DateTime? FechaRegistro { get; set; }
 
     }
