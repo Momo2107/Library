@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "y2bUHFsZElGjOfzlYGwFFtXp/wLj2cfUbnZl1JokphOwycSmeSCnB8N7f38dy60S08ZoBi/gTRDS/T9FVxwJqQ==",
+  "dgSpecHash": "TbRutBgsIvMAtuk/LDh1E3KuYWfOHnA/DQ+WO1kjnHeuanPGjQL2BjJpBOPio80CKN2tQ5u1tfS6Ju6oj64bUg==",
   "success": true,
   "projectFilePath": "D:\\Library\\Library\\Library.IntegrationTest\\Library.IntegrationTest.csproj",
   "expectedPackageFiles": [
@@ -92,10 +92,7 @@
     "C:\\Users\\Dariel\\.nuget\\packages\\xunit.core\\2.4.2\\xunit.core.2.4.2.nupkg.sha512",
     "C:\\Users\\Dariel\\.nuget\\packages\\xunit.extensibility.core\\2.4.2\\xunit.extensibility.core.2.4.2.nupkg.sha512",
     "C:\\Users\\Dariel\\.nuget\\packages\\xunit.extensibility.execution\\2.4.2\\xunit.extensibility.execution.2.4.2.nupkg.sha512",
-    "C:\\Users\\Dariel\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.5\\xunit.runner.visualstudio.2.4.5.nupkg.sha512",
-    "C:\\Users\\Dariel\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
-    "C:\\Users\\Dariel\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
-    "C:\\Users\\Dariel\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.16\\microsoft.aspnetcore.app.ref.6.0.16.nupkg.sha512"
+    "C:\\Users\\Dariel\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.5\\xunit.runner.visualstudio.2.4.5.nupkg.sha512"
   ],
   "logs": []
 }

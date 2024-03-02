@@ -1,8 +1,8 @@
 ﻿using Library.Domain.Core;
 
-namespace Library.Domain.Entities
+namespace Library.Domain.Entities.Production
 {
-    internal class Libro : BaseEntity
+    public class Libro : BaseEntity
     {
         public int IdLibro { get; set; }
         public int? IdCategoria { get; set; }

@@ -3,7 +3,7 @@ using Library.Domain.Core;
 
 namespace Library.Domain.Entities
 {
-    internal class Lector : BaseEntity 
+    public class Lector : BaseEntity 
     {
         public int? IdLector { get; set; }
         public string? Codigo { get; set; }

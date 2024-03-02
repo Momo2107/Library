@@ -1,7 +1,8 @@
 ﻿
 namespace Library.Domain.Repository
 {
-    public interface IBaseRepository<TEntity> where TEntity : class 
+    public interface IBaseRepository<TEntity> where TEntity : class
+
     {
 
     }

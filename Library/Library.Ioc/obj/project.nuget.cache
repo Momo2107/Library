@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DB7rvf1tTbc9d0ZMgi7vBsTtUyhEs/5a/vKy3CSbBqhIyjaI9kad0ppjRHnh3d2VaLc1Cy35s/fdocrQV7szGw==",
+  "dgSpecHash": "AuobcWtctW/LM3S4etpCfwcN7mRHQwOeJGxS03vYFN1imX+Yrq4zD8dHi/9zkVDr3UtTxVsmYcl5AVyb+wXmuQ==",
   "success": true,
   "projectFilePath": "D:\\Library\\Library\\Library.Ioc\\Library.Ioc.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Dariel\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
-    "C:\\Users\\Dariel\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
-    "C:\\Users\\Dariel\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.16\\microsoft.aspnetcore.app.ref.6.0.16.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
