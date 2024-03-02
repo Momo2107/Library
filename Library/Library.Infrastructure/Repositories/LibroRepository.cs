@@ -15,8 +15,8 @@ namespace Library.Infrastructure.Repositories
         {
             try
             {
-                if (context.Libros.Any(li => li.Titulo == libro.Titulo))
-                    throw new Exception("el titulo ya ha sido registrado.");
+                if (context.Libros.Any(li => li.IdLibro == libro.IdLibro))
+                    throw new Exception("el libro ya ha sido registrado.");
 
                 this.context.Libros.Add(libro);
                 this.context.SaveChanges();
