@@ -13,8 +13,18 @@ namespace Library.Infrastructure.Repositories
         }
         public void Create(Libro libro)
         {
-            this.context.Libros.Add(libro);
-            this.context.SaveChanges(); 
+            try
+            {
+                if (context.Libros.Any(li => li.Titulo == libro.Titulo))
+                    throw new Exception("el titulo ya ha sido registrado.");
+
+                this.context.Libros.Add(libro);
+                this.context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public Libro GetLibro(int IdLibro)
@@ -31,9 +41,12 @@ namespace Library.Infrastructure.Repositories
         public void Remove(Libro libro)
         {
             try
-            {
+            { 
+                var libroToRemove = this.GetLibro(libro.IdLibro);
 
-                this.context.Libros.Update(libro);
+                libroToRemove.Estado = false;
+
+                this.context.Libros.Update(libroToRemove);
                 this.context.SaveChanges();
             }
             catch (Exception ex)
@@ -46,10 +59,19 @@ namespace Library.Infrastructure.Repositories
         {
             try
             {
-                this.context.Libros.Update(libro);
+                var libroToUpdate = this.GetLibro(libro.IdLibro);
+
+                libroToUpdate.Ejemplares = libro.Ejemplares;
+                libroToUpdate.Ubicacion = libro.Ubicacion;
+                libroToUpdate.Autor = libro.Autor;
+                libroToUpdate.Editorial = libro.Editorial;
+                libroToUpdate.Portada = libro.Portada;
+                libroToUpdate.Titulo = libro.Titulo;
+
+                this.context.Libros.Update(libroToUpdate);
                 this.context.SaveChanges();
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 throw ex;
             }
