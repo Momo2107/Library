@@ -1,81 +1,58 @@
 ﻿
 using Library.Domain.Entities.Usuario_y_categoria;
+using Library.Domain.Repository;
 using Library.Infrastructure.Context;
+using Library.Infrastructure.Core;
 using Library.Infrastructure.Exceptions;
 using Library.Infrastructure.Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace Library.Infrastructure.Repositories
 {
-    public class UsuarioRepository : IUsuarioRepository
+    public class UsuarioRepository : BaseRepository<Usuario>, IUsuarioRepository
     {
         private readonly BibliotecaContext context;
-        public UsuarioRepository(BibliotecaContext context) 
+        private readonly ILogger<UsuarioRepository> logger;
+
+        public UsuarioRepository(BibliotecaContext context, ILogger<UsuarioRepository> logger) : base(context) 
         {
             this.context = context;
-        }
-        public void Create(Usuario usuario)
-        {
-            try
-            {
-                if (context.Usuario.Any(ca => ca.nombreApellidos == usuario.nombreApellidos))
-                    throw new UsuarioException("El usuario se encuentra registrado.");
-
-                this.context.Usuario.Add(usuario);
-                this.context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            this.logger = logger;
         }
 
-        public Usuario GetUsuario(int idUsuario)
+        public override bool Exists(Func<Usuario, bool> filter)
         {
-            return this.context.Usuario.Find(idUsuario);
+            return base.Exists(filter);
         }
 
-        public List<Usuario> GetUsuarios()
+        public override List<Usuario> FindAll(Func<Usuario, bool> filter)
         {
-            return this.context.Usuario.Where(ca => ca.esActivo).ToList();
+            return base.FindAll(filter);
         }
 
-        public void Remove(Usuario usuario)
+        public override void Remove(Usuario entity)
         {
-            try
-            {
-                var usuarioToRemoe = this.GetUsuario(usuario.idUsuario);
-
-                usuarioToRemoe.esActivo = false;
-
-                this.context.Usuario.Update(usuarioToRemoe);
-                this.context.SaveChanges();
-            }
-            catch (Exception ex) 
-            {
-                throw ex;
-            }
-            
+            base.Remove(entity);
         }
 
-        public void Update(Usuario usuario)
+        public override void Save(Usuario entity)
         {
-            try
-            {
-                var usuarioToUpdate = this.GetUsuario(usuario.idUsuario);
+            base.Save(entity);
+        }
 
-                usuarioToUpdate.nombreApellidos = usuario.nombreApellidos;
-                usuarioToUpdate.correo = usuario.correo;
-                usuarioToUpdate.clave = usuario.clave;
-                usuarioToUpdate.FechaCreacion = usuario.FechaCreacion;
+        public override void Update(Usuario entity)
+        {
+            base.Update(entity);
+        }
 
-                this.context.Usuario.Update(usuarioToUpdate);
-                this.context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            
+        List<Usuario> IBaseRepository<Usuario>.GetEntities()
+        {
+            return base.GetEntities();
+        }
+
+        Usuario IBaseRepository<Usuario>.GetEntity(int id)
+        {
+            return base.GetEntity(id);
         }
     }
 }

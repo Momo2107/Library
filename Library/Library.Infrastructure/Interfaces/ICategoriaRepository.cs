@@ -1,13 +1,10 @@
 ﻿using Library.Domain.Entities.Usuario_y_categoria;
+using Library.Domain.Repository;
 
 namespace Library.Infrastructure.Interfaces
 {
-    public interface ICategoriaRepository
+    public interface ICategoriaRepository : IBaseRepository<Categoria>
     {
-        void Create(Categoria categoria);
-        void Update(Categoria categoria);
-        void Remove(Categoria categoria);
-        List<Categoria> GetCategorias();
-        Categoria GetCategoria(int IdCategoria);
+        
     }
 }

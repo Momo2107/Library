@@ -1,13 +1,10 @@
 ﻿using Library.Domain.Entities.Usuario_y_categoria;
+using Library.Domain.Repository;
 
 namespace Library.Infrastructure.Interfaces
 {
-    public interface IUsuarioRepository
+    public interface IUsuarioRepository : IBaseRepository<Usuario>
     {
-        void Create(Usuario usuario);
-        void Update(Usuario usuario);
-        void Remove(Usuario usuario);
-        List<Usuario> GetUsuarios();
-        Usuario GetUsuario(int idUsuario);
+        
     }
 }
