@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "R:\\Library\\Library\\Library.Api\\Library.Api.csproj": {}
+    "C:\\Library\\Library\\Library.Api\\Library.Api.csproj": {}
   },
   "projects": {
-    "R:\\Library\\Library\\Library.Api\\Library.Api.csproj": {
+    "C:\\Library\\Library\\Library.Api\\Library.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "R:\\Library\\Library\\Library.Api\\Library.Api.csproj",
+        "projectUniqueName": "C:\\Library\\Library\\Library.Api\\Library.Api.csproj",
         "projectName": "Library.Api",
-        "projectPath": "R:\\Library\\Library\\Library.Api\\Library.Api.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "R:\\Library\\Library\\Library.Api\\obj\\",
+        "projectPath": "C:\\Library\\Library\\Library.Api\\Library.Api.csproj",
+        "packagesPath": "C:\\Users\\Gean\\.nuget\\packages\\",
+        "outputPath": "C:\\Library\\Library\\Library.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gean\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
