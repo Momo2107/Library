@@ -1,3 +1,8 @@
+using Library.Infrastructure.Context;
+using Library.Infrastructure.Interfaces;
+using Library.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 namespace Library.Api
 {
     public class Program
@@ -7,6 +12,16 @@ namespace Library.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            // Conn String
+            builder.Services.AddDbContext<BibliotecaContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BibliotecaContext")));
+
+            // Repositorios
+            builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+
+            // App Services
+
+            builder.Services.AddControllers();
             builder.Services.AddAuthorization();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -43,6 +58,7 @@ namespace Library.Api
             })
             .WithName("GetWeatherForecast");
 
+            app.MapControllers();
             app.Run();
         }
     }

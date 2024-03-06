@@ -19,7 +19,7 @@ namespace Library.Infrastructure.Repositories
         }
         public override List<Categoria> GetEntities()
         {
-            return base.GetEntities().Where(categoria => !categoria.Estado).ToList();
+            return base.GetEntities().Where(categoria => categoria.Estado).ToList();
         }
         public override void Update(Categoria entity)
         {

@@ -9,3 +9,15 @@ R:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.dll
 R:\Library\Library\Library.Domain\obj\Debug\net6.0\refint\Library.Domain.dll
 R:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.pdb
 R:\Library\Library\Library.Domain\obj\Debug\net6.0\ref\Library.Domain.dll
+C:\Library\Library\Library.Domain\bin\Debug\net6.0\Library.Domain.deps.json
+C:\Library\Library\Library.Domain\bin\Debug\net6.0\Library.Domain.dll
+C:\Library\Library\Library.Domain\bin\Debug\net6.0\Library.Domain.pdb
+C:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.AssemblyInfoInputs.cache
+C:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.AssemblyInfo.cs
+C:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.csproj.CoreCompileInputs.cache
+C:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.sourcelink.json
+C:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.dll
+C:\Library\Library\Library.Domain\obj\Debug\net6.0\refint\Library.Domain.dll
+C:\Library\Library\Library.Domain\obj\Debug\net6.0\Library.Domain.pdb
+C:\Library\Library\Library.Domain\obj\Debug\net6.0\ref\Library.Domain.dll
