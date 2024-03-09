@@ -32,22 +32,63 @@ namespace Library.Infrastructure.Repositories
 
         public override void Remove(Usuario entity)
         {
-            base.Remove(entity);
+            try
+            {
+                Usuario usuarioToRemove = this.GetEntity(entity.idUsuario);
+
+                if (usuarioToRemove is null)
+                    throw new UsuarioException("El usuario no existe.");
+
+                usuarioToRemove.esActivo = false;
+
+                this.context.Usuario.Update(usuarioToRemove);
+                this.context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError("El usuario ha sido eliminado {0}", ex.ToString());
+            }
         }
 
         public override void Save(Usuario entity)
         {
-            base.Save(entity);
+            try
+            {
+                if (context.Usuario.Any(usuario => usuario.nombreApellidos == entity.nombreApellidos))
+                    throw new UsuarioException("El usuario ya ha sido registrada.");
+
+                this.context.Usuario.Add(entity);
+                this.context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError("Error salvando el usuario. {0}", ex.ToString());
+
+            }
         }
 
         public override void Update(Usuario entity)
         {
-            base.Update(entity);
+            try
+            {
+                var usuarioToUpdate = this.GetEntity(entity.idUsuario);
+
+                usuarioToUpdate.nombreApellidos = entity.nombreApellidos;
+                usuarioToUpdate.esActivo = entity.esActivo;
+
+                this.context.Usuario.Update(usuarioToUpdate);
+                this.context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                this.logger.LogError("Error actualizando el usuario. {0}", ex.ToString());
+            }
         }
 
-        List<Usuario> IBaseRepository<Usuario>.GetEntities()
+        public override List<Usuario> GetEntities()
         {
-            return base.GetEntities();
+            return base.GetEntities().Where(usuario => usuario.esActivo).ToList();
         }
 
         Usuario IBaseRepository<Usuario>.GetEntity(int id)

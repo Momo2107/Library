@@ -18,6 +18,8 @@ namespace Library.Api
 
             // Repositorios
             builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+            builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
 
             // App Services
 

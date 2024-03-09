@@ -56,8 +56,27 @@ namespace Library.Infrastructure.Repositories
             }
 
         }
+        public override void Remove(Categoria entity)
+        {
+            try
+            {
+                Categoria categoriaToRemove = this.GetEntity(entity.IdCategoria);
+                
+                if (categoriaToRemove is null)
+                    throw new CategoriaException("La categoria no existe.");
 
-        
+                categoriaToRemove.Estado = false;
+
+                this.context.Categoria.Update(categoriaToRemove);
+                this.context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError("La categoria ha sido eliminada {0}", ex.ToString());
+            }
+        }
+
+
     }
 }
 

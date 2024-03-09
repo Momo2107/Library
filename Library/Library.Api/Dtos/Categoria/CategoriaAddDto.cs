@@ -2,9 +2,8 @@
 
 namespace Library.Api.Dtos.Categoria
 {
-    public class CategoriaAddDto : DtoBase
+    public class CategoriaAddDto : CategoriaDtoBase
     {
-        public string? descripcion { get; set; }
-        public bool estado { get; set; }
+    
     }
 }

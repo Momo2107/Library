@@ -2,7 +2,6 @@
 {
     public class DtoBase
     {
-        public int UserId { get; set; }
         public DateTime ChangeDate { get; set; }
     }
 }

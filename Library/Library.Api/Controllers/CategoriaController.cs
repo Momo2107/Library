@@ -1,9 +1,10 @@
 ﻿
+using Library.Api.Dtos.Categoria;
 using Library.Api.Models;
+using Library.Domain.Entities.Usuario_y_categoria;
 using Library.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Library.Api.Controllers
 {
@@ -17,8 +18,8 @@ namespace Library.Api.Controllers
         {
             this.categoriaRepository = categoriaRepository;
         }
-        // GET: api/<CategoriaController>
-        [HttpGet("GetCategorias")]
+
+        [HttpGet("GetCategory")]
         public IActionResult Get()
         {
             var categoria = this.categoriaRepository.GetEntities().Select(categoria => new CategoriaGetModel()
@@ -32,8 +33,7 @@ namespace Library.Api.Controllers
             return Ok(categoria);
         }
 
-        // GET api/<CategoriaController>/5
-        [HttpGet("GetCategoriaById")]
+        [HttpGet("GetCategoryById")]
         public IActionResult Get(int id)
         {
             var categoria = this.categoriaRepository.GetEntity(id);
@@ -46,28 +46,42 @@ namespace Library.Api.Controllers
             return Ok(categoria);
         }
 
-        // POST api/<CategoriaController>
         [HttpPost("SaveCategory")]
-        public void Post([FromBody] CategoriaGetModel categoriaAddModel)
+        public IActionResult Post([FromBody] CategoriaAddDto categoriaAddDto)
         {
             this.categoriaRepository.Save(new Domain.Entities.Usuario_y_categoria.Categoria()
             {
-                Descripcion = categoriaAddModel.descripcion,
-                Estado = categoriaAddModel.estado,
-                FechaCreacion = categoriaAddModel.fechaCreacion
+                Descripcion = categoriaAddDto.descripcion,
+                Estado = categoriaAddDto.estado,
+                FechaCreacion = categoriaAddDto.ChangeDate
             });
+            return Ok("Categoria guardada correctamente.");
         }
 
-        // PUT api/<CategoriaController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("UpdateCategory")]
+        public IActionResult Put([FromBody] CategoriaUpdateDto categoriaUpdate)
         {
+            this.categoriaRepository.Update(new Categoria()
+            {
+                IdCategoria = categoriaUpdate.Idcategoria,
+                Descripcion = categoriaUpdate.descripcion,
+                Estado = categoriaUpdate.estado,
+                FechaCreacion = categoriaUpdate.ChangeDate
+
+            });
+            return Ok("Categoria actualizada correctamente.");
         }
 
-        // DELETE api/<CategoriaController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("RemoveCategory")]
+        public IActionResult Delete([FromBody] CategoriaRemoveDto categoriaRemove)
         {
+            this.categoriaRepository.Remove(new Categoria()
+            {
+                IdCategoria = categoriaRemove.Idcategoria,
+                FechaCreacion = categoriaRemove.ChangeDate 
+            });
+            return Ok("Categoria eliminada correctamente.");
         }
+        
     }
 }
