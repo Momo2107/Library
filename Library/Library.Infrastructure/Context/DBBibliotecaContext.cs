@@ -11,5 +11,7 @@ namespace Library.Infrastructure.Context
         {
         }
         public DbSet<Prestamo> Prestamos { get; set; }
+        public DbSet<Prestamo> Lector { get; set; }
+
     }
 }

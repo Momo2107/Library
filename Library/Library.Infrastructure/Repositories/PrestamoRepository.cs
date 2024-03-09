@@ -2,81 +2,87 @@
 
 using Library.Domain.Entities;
 using Library.Infrastructure.Context;
+using Library.Infrastructure.Core;
 using Library.Infrastructure.Exceptions;
 using Library.Infrastructure.Interfaces;
+using Library.Infrastructure.Models;
+using Microsoft.Extensions.Logging;
 
 namespace Library.Infrastructure.Repositories
 {
-    public class PrestamoRepository : IPrestamoRepository
+    public class PrestamoRepository : BaseRepository<Prestamo>, IPrestamoRepository
     {
         private readonly DBBibliotecaContext context;
-        public PrestamoRepository(DBBibliotecaContext context)
+        private readonly ILogger<PrestamoRepository> logger;
+
+        public PrestamoRepository(DBBibliotecaContext context, ILogger<PrestamoRepository> logger) : base(context)
         {
             this.context = context;
+            this.logger = logger;
         }
-        public void Create(Prestamo prestamo)
+        public override List<Prestamo> GetEntities()
+        {
+            return base.GetEntities().Where(pre => pre.EstadoEntregado == false).ToList();
+        }
+
+        public override void Update(Prestamo entity)
         {
             try
             {
-                if (context.Prestamos.Any(pre => prestamo.IdLector == prestamo.IdLector))
-                    throw new PrestamoException("El lector ya posee un prestamo en curso");
+                var prestamoToUpdate = this.GetEntity(entity.IdPrestamo);
 
-                this.context.Add(prestamo);
-                this.context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public Prestamo GetPrestamo(int IdPrestamo)
-        {
-            return this.context.Prestamos.Find(IdPrestamo);
-        }
-
-        public List<Prestamo> GetPrestamos()
-        {
-            return this.context.Prestamos.ToList();
-        }
-
-        public void Remove(Prestamo prestamo)
-        {
-            try
-            {
-                var prestamoToRemove = this.GetPrestamo(prestamo.IdPrestamo);
-
-                prestamoToRemove.EstadoEntregado = true;
-                prestamoToRemove.EstadoRecibido = prestamo.EstadoRecibido;
-                prestamoToRemove.FechaDevolucion = prestamo.FechaDevolucion;
-
-                this.context.Prestamos.Update(prestamoToRemove);
-                this.context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void Update(Prestamo prestamo)
-        {
-            try
-            {
-                var prestamoToUpdate = this.GetPrestamo(prestamo.IdPrestamo);
-
-                prestamoToUpdate.IdLector = prestamo.IdLector;
-                prestamoToUpdate.IdLibro = prestamo.IdLibro;
-                prestamoToUpdate.IdEstadoPrestamo = prestamo.IdEstadoPrestamo;
-                prestamoToUpdate.FechaDevolucion = prestamo.FechaDevolucion;
+                prestamoToUpdate.IdLector = entity.IdLector;
+                prestamoToUpdate.IdLibro = entity.IdLibro;
+                prestamoToUpdate.IdEstadoPrestamo = entity.IdEstadoPrestamo;
+                prestamoToUpdate.FechaDevolucion = entity.FechaDevolucion;
 
                 this.context.Prestamos.Update(prestamoToUpdate);
                 this.context.SaveChanges();
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                throw ex;
+                this.logger.LogError("Error actualizando el prestamo", ex.ToString());
             }
         }
+
+        public override void Save(Prestamo entity)
+        {
+            try
+            {
+                if (context.Prestamos.Any(pre => pre.IdLector == entity.IdLector))
+                    throw new PrestamoException("El lector ya posee un prestamo en curso");
+
+                this.context.Add(entity);
+                this.context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError("Error guardando el prestamo", ex.ToString());
+            }
+        }
+
+        public List<PrestamoModel> GetPrestamoByLector(int IdLector)
+        {
+            List<PrestamoModel> prestamos = new List<PrestamoModel>();
+            //Crear entidades
+            try
+            {
+                prestamos = (from pre in this.context.Prestamos
+                             join le in this.context.Lector on pre.IdLector equals le.IdLector
+                             where pre.IdLector == IdLector
+                            select new PrestamoModel()
+                            {
+                                IdPrestamo = pre.IdPrestamo,
+                                IdLector = IdLector
+                            }).ToList();
+                return prestamos;
+            }
+            catch (Exception ex)
+            {
+
+                this.logger.LogError("Error obteniendo el lector", ex.ToString());
+            }
+        }
+
     }
 }
