@@ -2,15 +2,12 @@
 
 
 using Library.Domain.Entities.Esta.Prestam_y_Num.Correlativo;
+using Library.Domain.Repository;
 
 namespace Library.Infrastructure.Interfaces
 {
-    public interface IEstadoPrestamosRepository
+    public interface IEstadoPrestamosRepository : IBaseRepository<EstadoPrestamo>
     {
-        void Create(EstadoPrestamo estadoPrestamos);
-        void Update(EstadoPrestamo estadoPrestamos);
-        void Remove(EstadoPrestamo estadoPrestamos);
-        List<EstadoPrestamo> GetEstadoPrestamos();
-        EstadoPrestamo GetEstadoPrestamos(int IdEstadoPrestamo);
+
     }
 }
