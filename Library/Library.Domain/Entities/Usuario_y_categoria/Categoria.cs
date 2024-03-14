@@ -9,5 +9,6 @@ namespace Library.Domain.Entities.Usuario_y_categoria
         [Key]
         public int IdCategoria { get; set; }
         public string? Descripcion { get; set; }
+        public bool Estado { get; set; }
     }
 }

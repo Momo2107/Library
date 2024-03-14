@@ -65,16 +65,21 @@ namespace Library.Api.Controllers
         [HttpPut("UpdateUser")]
         public IActionResult Put([FromBody] UsuarioUpdateDto usuarioUpdateDto)
         {
-            this.usuarioRepository.Update(new Usuario()
-            {
-                idUsuario = usuarioUpdateDto.IdUsuario,
-                nombreApellidos = usuarioUpdateDto.NombreApellidos,
-                correo = usuarioUpdateDto.Correo,
-                clave = usuarioUpdateDto.Clave,
-                esActivo = usuarioUpdateDto.EsActivo,
-                FechaCreacion = usuarioUpdateDto.ChangeDate
+            var usuario = this.usuarioRepository.GetEntity(usuarioUpdateDto.IdUsuario);
 
-            });
+            if (usuario == null)
+            {
+                return NotFound("Usuario no encontrado.");
+            }
+
+            usuario.nombreApellidos = usuarioUpdateDto.NombreApellidos;
+            usuario.correo = usuarioUpdateDto.Correo;
+            usuario.clave = usuarioUpdateDto.Clave;
+            usuario.esActivo = usuarioUpdateDto.EsActivo;
+            usuario.FechaCreacion = usuarioUpdateDto.ChangeDate;
+
+            this.usuarioRepository.Update(usuario);
+
             return Ok("Usuario actualizado correctamente.");
         }
 
